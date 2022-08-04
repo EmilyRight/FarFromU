@@ -47,6 +47,7 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions)); // app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // sign
 const { COOKIE_SECRET, COOKIE_NAME } = process.env;
@@ -154,6 +155,10 @@ io.on('connection', (socket) => {
     io.emit('joinRoom', users);
   });
   // THE END
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/client/build/index.html`));
 });
 
 server.listen(PORT, () => console.log('Server has been started on port 3001'));
