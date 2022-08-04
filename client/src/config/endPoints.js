@@ -1,4 +1,4 @@
-const { REACT_APP_HOST: host } = process.env;
+const { 'https://farfromu.herokuapp.com': host } = process.env;
 
 export const signUp = () => `${host}/auth/signup`;
 export const signIn = () => `${host}/auth/signin`;
