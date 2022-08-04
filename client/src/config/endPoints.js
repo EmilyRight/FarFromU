@@ -1,4 +1,4 @@
-const { 'https://farfromu.herokuapp.com': host } = process.env;
+const host  = 'https://farfromu.herokuapp.com'
 
 export const signUp = () => `${host}/auth/signup`;
 export const signIn = () => `${host}/auth/signin`;
